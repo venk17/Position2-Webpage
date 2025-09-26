@@ -172,6 +172,7 @@
   .header-content {
     height: 55px;
     padding: 5px 0;
+   
   }
   
   .container {
@@ -271,4 +272,80 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .header-content {
+    height: 55px;
+    padding: 5px 0;
+    /* width: 100%; */ /* This line has been removed to fix the overflow issue */
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .logo-icon {
+    height: 35px;
+  }
+  
+  .logo-text {
+    font-size: 14px;
+  }
+  
+  .brand-text {
+    font-size: 12px;
+    display: none; /* Hide brand text on very small screens */
+  }
+  
+  .divider {
+    display: none; /* Hide divider on small screens */
+  }
+  
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 10px 0;
+    display: none;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav.open {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+  
+  .nav-link, .contact-btn {
+    width: 90%;
+    text-align: center;
+    padding: 12px 15px;
+    margin: 2px 0;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .contact-btn {
+    border: 2px solid transparent;
+    border-image: linear-gradient(90deg, #2276AB, #94D893) 1;
+    margin-top: 10px;
+    width: 90%;
+  }
+  
+  .contact-btn:hover {
+    background: linear-gradient(90deg, #2276AB, #94D893);
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
