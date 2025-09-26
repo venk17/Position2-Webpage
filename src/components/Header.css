@@ -1,0 +1,274 @@
+/* Header container */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* transparent with dark overlay */
+  z-index: 1000;
+  padding: 0 0; /* slimmer height */
+  backdrop-filter: blur(6px); /* glass effect */
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px; /* Fixed height for consistency */
+}
+
+/* Logo & brand */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo-icon {
+  height: 50px; /* Reduced from 88px */
+  width: auto;
+  transition: height 0.3s ease;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  transition: font-size 0.3s ease;
+}
+
+.divider {
+  color: #fff;
+  margin: 0 5px;
+  font-size: 14px;
+}
+
+.brand-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  transition: font-size 0.3s ease;
+}
+.brand-highlight{
+  color: #62D84E;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #94D893;
+}
+
+/* Contact Us button */
+.contact-btn {
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-image: linear-gradient(90deg, #2276AB, #94D893) 1;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.contact-btn:hover {
+  background: linear-gradient(90deg, #2276AB, #94D893);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+  padding: 5px;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2.5px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .header-content {
+    height: 60px;
+  }
+  
+  .logo-icon {
+    height: 40px;
+  }
+  
+  .logo-text {
+    font-size: 16px;
+  }
+  
+  .brand-text {
+    font-size: 14px;
+  }
+  
+  .nav {
+    gap: 15px;
+  }
+  
+  .nav-link {
+    font-size: 14px;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .header-content {
+    height: 55px;
+    padding: 5px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .logo-icon {
+    height: 35px;
+  }
+  
+  .logo-text {
+    font-size: 14px;
+  }
+  
+  .brand-text {
+    font-size: 12px;
+    display: none; /* Hide brand text on very small screens */
+  }
+  
+  .divider {
+    display: none; /* Hide divider on small screens */
+  }
+  
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 10px 0;
+    display: none;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav.open {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+  
+  .nav-link, .contact-btn {
+    width: 90%;
+    text-align: center;
+    padding: 12px 15px;
+    margin: 2px 0;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .contact-btn {
+    border: 2px solid transparent;
+    border-image: linear-gradient(90deg, #2276AB, #94D893) 1;
+    margin-top: 10px;
+    width: 90%;
+  }
+  
+  .contact-btn:hover {
+    background: linear-gradient(90deg, #2276AB, #94D893);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Small Mobile Responsive */
+@media (max-width: 480px) {
+  .header-content {
+    height: 50px;
+  }
+  
+  .logo-icon {
+    height: 30px;
+  }
+  
+  .logo-text {
+    font-size: 13px;
+  }
+  
+  .header-left {
+    gap: 5px;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

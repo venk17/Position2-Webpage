@@ -1,0 +1,129 @@
+/* Home.css */
+
+/* Full-page hero */
+.hero {
+                   /* Full width */
+  height: 100vh;               /* Full viewport height */
+  display: flex;
+  align-items: center;         /* Vertically center content */
+  justify-content: flex-start; /* Left align content */
+  position: relative;
+  color: white;
+  background-size: cover;      /* Cover the section */
+  background-position: center;
+  background-attachment: fixed; /* Optional parallax effect */
+  padding-left: 80px;          /* Left padding */
+  overflow: hidden;
+}
+
+/* Dark overlay for readability */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+  z-index: 1;
+}
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* Hero title */
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color:#B5F58C; /* Green accent color */
+}
+
+/* Hero subtitle */
+.hero-subtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+/* Button styling */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #4ade80, #22c55e);
+  border: 2px solid #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center;
+    padding-left: 20px;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+/* Button styling: initial border only */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2276AB; /* Text color matches gradient start */
+  background: transparent;   /* Transparent initially */
+  border: 2px solid #2276AB; /* Initial border color */
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Hover: gradient background and white text */
+.btn:hover {
+  background: linear-gradient(90deg, #2276AB, #94D893); /* Left to right */
+  color: #fff;             /* Text becomes white */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}

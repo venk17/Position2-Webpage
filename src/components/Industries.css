@@ -1,0 +1,166 @@
+/* Section styling */
+.industries-section {
+  padding: 80px 0;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.industries-title {
+  font-size: 2.5rem;
+  color: #6eff6e;
+  margin-bottom: 10px;
+}
+
+.industries-subtitle {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Carousel container */
+.carousel-container {
+  overflow-x: auto;
+  width: 100%;
+  position: relative;
+  cursor: grab;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.carousel-container:active {
+  cursor: grabbing;
+}
+
+.industries-slider {
+  display: flex;
+  padding: 10px 0;
+  gap: 30px;
+  width: max-content;
+  transition: transform 0.3s ease;
+}
+
+/* Individual card */
+.industry-card {
+  flex: 0 0 350px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 32px;
+  overflow: hidden;
+  min-height: 450px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.industry-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Dark overlay for readability */
+.industry-content {
+  background: linear-gradient(
+    to top, 
+    rgba(5, 38, 70, 0.95),
+    rgba(0, 0, 0, 0)
+  );
+  padding: 20px;
+  color: #fff;
+  width: 100%;
+  text-align: left;
+}
+
+.industry-content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  color: #B5F58C;
+}
+
+.industry-content p {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 12px;
+}
+
+.btn.btn-primary {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #6eff6e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn.btn-primary:hover {
+  text-decoration: underline;
+}
+
+/* Carousel dots */
+.carousel-nav {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #444;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-dot.active {
+  background-color: #6eff6e;
+  transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+  background-color: #6eff6e;
+  transform: scale(1.1);
+}
+
+/* Smooth scrolling */
+.carousel-container {
+  scroll-behavior: smooth;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .industry-card {
+    flex: 0 0 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .industry-card {
+    flex: 0 0 280px;
+    min-height: 400px;
+  }
+  
+  .industries-title {
+    font-size: 2rem;
+  }
+  
+  .industry-content h3 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Disable text selection during drag */
+.carousel-container * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

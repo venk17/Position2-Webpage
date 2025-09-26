@@ -1,0 +1,59 @@
+.cta-section {
+  position: relative;
+  text-align: center;
+  padding: 80px 20px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url("../assets/PressRealsImg.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;   /* controls image visibility */
+  z-index: 1;
+}
+
+/* Gradient overlay (optional) */
+.cta-section::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to bottom right, #003366, #006644);
+  opacity: 0.8;   /* adjust darkness of gradient */
+  z-index: 2;
+}
+
+/* Content above overlays */
+.cta-section > * {
+  position: relative;
+  z-index: 3;
+}
+
+.cta-section h2 {
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  background-color: #001122;
+  border: 1px solid #00ff88;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #00ff88;
+  color: #001122;
+}

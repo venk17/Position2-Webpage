@@ -1,0 +1,69 @@
+.client-showcase {
+  background-color: #000; /* dark background */
+  color: #fff;
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.client-showcase .section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #9eff70; /* neon green */
+}
+
+.client-showcase .section-desc {
+  font-size: 1rem;
+  color: #ccc; /* muted gray */
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.logo-box {
+  background: #111; /* dark card */
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: .5rem;
+  margin-left: 1rem;
+  flex: 0 1 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+ 
+}
+.logo-box {
+  background: #111; /* dark card */
+  border: 1px solid #222;
+  border-radius: 12; /* keep rectangle */
+  padding: 0.75rem 1rem;
+  margin-left: 1rem;
+  width: 220px;   /* increased width */
+  height: 70px;   /* taller for balance */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+
+.logo-box img {
+  max-width: 150px;
+  max-height: 80px;
+  object-fit: contain; /* keeps logos sharp */
+}
+
+.logo-box:hover {
+  transform: translateY(-5px);
+  border-color: #9eff70;
+  box-shadow: 0 0 15px rgba(158, 255, 112, 0.4);
+}

@@ -1,0 +1,84 @@
+.services-container {
+  
+  color: #fff;
+  text-align: center;
+  padding: 80px 190px;
+  font-family: "Segoe UI", sans-serif;
+  position: relative;
+  background-color: #000000;
+  margin-top: 0;
+}
+
+.services-heading {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  justify-content: center;
+}
+
+.service-card {
+
+  border-left: 3px solid #8efc63; /* neon green left line */
+  border-radius: 8px;
+  padding: 40px 25px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(142, 252, 99, 0.25);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #8efc63;
+}
+
+.service-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.read-more {
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.read-more span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #8efc63;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #8efc63;
+}
+
+.read-more:hover {
+  color: #8efc63;
+}

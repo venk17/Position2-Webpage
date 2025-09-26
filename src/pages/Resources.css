@@ -1,0 +1,97 @@
+.resources-section {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 110px 20px 50px 20px;
+  
+
+}
+
+.resources-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #9fff8f; /* light green */
+  margin-bottom: 10px;
+}
+
+.resources-subtitle {
+  font-size: 1rem;
+  color: #d1d5db;
+  margin-bottom: 40px;
+}
+
+.resources-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.resource-card {
+  position: relative;
+  width: 380px;
+  height: 450px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Blue overlay */
+.resource-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: #042243;
+  opacity: 0.1; /* adjust for darker/lighter effect */
+}
+
+.resource-content {
+  position: relative; /* keeps text above overlay */
+  padding: 20px;
+  width: 100%;
+  text-align: left;
+  z-index: 2;
+}
+
+.resource-type {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.resource-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #a7f442; /* neon green */
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.read-more {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s;
+}
+
+.read-more:hover {
+  color: #a7f442;
+}
+
+.arrow {
+  font-size: 1.2rem;
+}

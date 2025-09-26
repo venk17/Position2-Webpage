@@ -1,0 +1,75 @@
+.who-section {
+  background: #0b1c22;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+  padding-top: 150px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #8afc70;
+  margin-bottom: 20px;
+}
+
+.section-desc {
+  max-width: 850px;
+  margin: 0 auto 50px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d5dfe5;
+}
+
+.who-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.who-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 180px;
+  text-align: center;
+}
+
+.who-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #00d2ff, #8afc70);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.who-card p {
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, #002f4b, #00d2ff);
+}
+
+.primary-btn {
+  background: linear-gradient(90deg, #00d2ff, #8afc70);
+  border: 1px solid #8afc70;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(138, 252, 112, 0.5);
+}
