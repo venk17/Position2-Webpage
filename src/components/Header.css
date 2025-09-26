@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  
   background: rgba(0, 0, 0, 0.4); /* transparent with dark overlay */
   z-index: 1000;
   padding: 0 0; /* slimmer height */
@@ -14,6 +14,7 @@
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%; /* Ensure container takes full width */
 }
 
 .header-content {
@@ -21,6 +22,7 @@
   align-items: center;
   justify-content: space-between;
   height: 70px; /* Fixed height for consistency */
+  width: 100%; /* Ensure full width */
 }
 
 /* Logo & brand */
@@ -28,6 +30,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 1; /* Allow shrinking on small screens */
+  min-width: 0; /* Allow text truncation */
 }
 
 .logo {
@@ -35,6 +39,7 @@
   align-items: center;
   text-decoration: none;
   cursor: pointer;
+  flex-shrink: 0; /* Prevent logo from shrinking */
 }
 
 .logo-icon {
@@ -48,12 +53,17 @@
   font-weight: 600;
   color: #ffffff;
   transition: font-size 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px; /* Prevent excessive width */
 }
 
 .divider {
   color: #fff;
   margin: 0 5px;
   font-size: 14px;
+  flex-shrink: 0;
 }
 
 .brand-text {
@@ -61,6 +71,10 @@
   font-weight: 600;
   color: #ffffff;
   transition: font-size 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px; /* Prevent excessive width */
 }
 .brand-highlight{
   color: #62D84E;
@@ -71,6 +85,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-shrink: 0; /* Prevent nav from shrinking */
 }
 
 .nav-link {
@@ -105,6 +120,7 @@
   border-image: linear-gradient(90deg, #2276AB, #94D893) 1;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0; /* Prevent button from shrinking */
 }
 
 .contact-btn:hover {
@@ -121,6 +137,7 @@
   cursor: pointer;
   gap: 4px;
   padding: 5px;
+  flex-shrink: 0; /* Prevent hamburger from shrinking */
 }
 
 .hamburger span {
@@ -152,10 +169,12 @@
   
   .logo-text {
     font-size: 16px;
+    max-width: 130px;
   }
   
   .brand-text {
     font-size: 14px;
+    max-width: 100px;
   }
   
   .nav {
@@ -167,16 +186,16 @@
   }
 }
 
-/* Mobile Responsive */
+/* Mobile Responsive - FIXED FOR 459px ISSUE */
 @media (max-width: 768px) {
   .header-content {
     height: 55px;
     padding: 5px 0;
-   
   }
   
   .container {
     padding: 0 15px;
+    max-width: 100%; /* Remove max-width constraint on mobile */
   }
   
   .logo-icon {
@@ -185,6 +204,7 @@
   
   .logo-text {
     font-size: 14px;
+    max-width: 110px;
   }
   
   .brand-text {
@@ -199,15 +219,18 @@
   .nav {
     position: absolute;
     top: 100%;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.95);
     flex-direction: column;
     align-items: center;
     gap: 0;
     padding: 10px 0;
     display: none;
-    width: 100%;
+    width: 95%; /* Reduced from 100% */
+    max-width: 300px; /* Added maximum width */
+    border-radius: 8px;
+    margin-top: 5px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 
@@ -228,6 +251,10 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
+  .nav-link:last-child, .contact-btn {
+    border-bottom: none;
+  }
+  
   .contact-btn {
     border: 2px solid transparent;
     border-image: linear-gradient(90deg, #2276AB, #94D893) 1;
@@ -244,6 +271,42 @@
   }
 }
 
+/* Specific fix for 459px range */
+@media (max-width: 459px) {
+  .header{
+    width:80% !important;
+  }
+  .container {
+    padding: 0 10px; /* Reduce padding further */
+  }
+  
+  .header-content {
+    height: 50px;
+    padding: 3px 0;
+  }
+  
+  .logo-icon {
+    height: 30px;
+  }
+  
+  .logo-text {
+    font-size: 13px;
+    max-width: 90px; /* Further reduce text width */
+  }
+  
+  .header-left {
+    gap: 4px; /* Reduce gap between elements */
+  }
+  
+  .hamburger {
+    padding: 3px; /* Reduce hamburger padding */
+  }
+  
+  .hamburger span {
+    width: 20px; /* Slightly smaller hamburger */
+  }
+}
+
 /* Small Mobile Responsive */
 @media (max-width: 480px) {
   .header-content {
@@ -256,96 +319,62 @@
   
   .logo-text {
     font-size: 13px;
+    max-width: 100px;
   }
   
   .header-left {
     gap: 5px;
+  }
+  
+  /* Improved mobile navigation for very small screens */
+  .nav {
+    width: 92%; /* Slightly narrower on very small screens */
+    max-width: 280px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .nav-link, .contact-btn {
+    width: 88%;
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 8px; /* Minimal padding */
+  }
+  
+  .nav {
+    width: 90%;
+    max-width: 260px;
+  }
+  
+  .nav-link, .contact-btn {
+    width: 85%;
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  
+  .logo-text {
+    font-size: 12px;
+    max-width: 80px;
+  }
+  
+  .logo-icon {
+    height: 28px;
   }
 }
 
 @keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateY(-15px);
+    transform: translateY(-15px) translateX(-50%);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateX(-50%);
   }
-}
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .header-content {
-    height: 55px;
-    padding: 5px 0;
-    /* width: 100%; */ /* This line has been removed to fix the overflow issue */
-  }
-  
-  .container {
-    padding: 0 15px;
-  }
-  
-  .logo-icon {
-    height: 35px;
-  }
-  
-  .logo-text {
-    font-size: 14px;
-  }
-  
-  .brand-text {
-    font-size: 12px;
-    display: none; /* Hide brand text on very small screens */
-  }
-  
-  .divider {
-    display: none; /* Hide divider on small screens */
-  }
-  
-  .nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.95);
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding: 10px 0;
-    display: none;
-    width: 100%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  }
-
-  .nav.open {
-    display: flex;
-    animation: slideDown 0.3s ease;
-  }
-  
-  .nav-link, .contact-btn {
-    width: 90%;
-    text-align: center;
-    padding: 12px 15px;
-    margin: 2px 0;
-    font-size: 16px;
-    border: none;
-    background: transparent;
-    color: #ffffff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .contact-btn {
-    border: 2px solid transparent;
-    border-image: linear-gradient(90deg, #2276AB, #94D893) 1;
-    margin-top: 10px;
-    width: 90%;
-  }
-  
-  .contact-btn:hover {
-    background: linear-gradient(90deg, #2276AB, #94D893);
-  }
-
-  .hamburger {
-    display: flex;
-  }
 }

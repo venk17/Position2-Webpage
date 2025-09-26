@@ -1,5 +1,12 @@
 /* Home.css */
 
+/* Reset box-sizing for consistent sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* Full-page hero */
 .hero {
   width: 100%;                /* Full width */
@@ -28,11 +35,12 @@
   z-index: 1;
 }
 
-/* Hero content */
+/* Hero content - ADDED WIDTH CONTROL */
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: 600px;
+  width: 100%; /* Ensure it respects max-width */
   animation: fadeInUp 1s ease forwards;
 }
 
@@ -108,6 +116,7 @@ html {
 
   .hero-content {
     max-width: 100%;
+    width: 100%; /* Explicit width control */
     padding: 0 10px;
     transform: translateY(-20px); /* Slight upward adjustment for better centering */
   }
@@ -139,6 +148,10 @@ html {
     min-height: 550px;
   }
 
+  .hero-content {
+    width: 100%; /* Explicit width control */
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
@@ -160,7 +173,7 @@ html {
 
   .hero-content {
     transform: translateY(-10px);
-    width: 100%;
+    width: 100%; /* Explicit width control */
   }
 
   .hero-title {
@@ -190,6 +203,10 @@ html {
     min-height: 450px;
   }
 
+  .hero-content {
+    width: 100%; /* Explicit width control */
+  }
+
   .hero-title {
     font-size: 1.9rem;
   }
@@ -217,6 +234,7 @@ html {
   .hero-content {
     transform: translateY(0);
     margin: 0 auto;
+    width: 100%; /* Explicit width control */
   }
 
   .hero-title {
