@@ -59,7 +59,8 @@ function App() {
         activeSection={activeSection}
       />
 
-      {/* Sections */}
+     <div>
+       {/* Sections */}
       <section id="home" ref={setSectionRef("home")}>
         <Home scrollToSection={scrollToSection} />
       </section>
@@ -81,6 +82,7 @@ function App() {
       <section id="contact" ref={setSectionRef("contact")}>
         <Contact />
       </section>
+     </div>
     </div>
   );
 }
