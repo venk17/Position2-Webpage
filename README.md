@@ -1,5 +1,3 @@
-# React + Vite
-
 # Proviniti Website - React.js Implementation
 
 A modern, responsive website for Proviniti built with React.js, showcasing their ServiceNow consulting and digital transformation services.
@@ -11,9 +9,11 @@ A modern, responsive website for Proviniti built with React.js, showcasing their
 - **Component-Based Architecture**: Modular React components for easy maintenance
 - **Interactive Elements**: Hover effects, smooth transitions, and engaging user interface
 - **SEO-Friendly**: Proper semantic HTML structure
+- **Multi-Page Routing**: React Router for seamless navigation
 
-## 📋 Project Structure
+## 📋 Updated Project Structure
 
+```
 src/
 ├── components/
 │   ├── CTASection.jsx & CTASection.css
@@ -33,9 +33,12 @@ src/
 │   └── WhoWeAre.jsx
 ├── main.jsx
 └── index.css
+```
+
 ## 🛠️ Technologies Used
 
 - **React 18** - Frontend framework
+- **React Router DOM** - Client-side routing
 - **CSS3** - Styling with Flexbox and Grid
 - **HTML5** - Semantic markup
 - **JavaScript ES6+** - Modern JavaScript features
@@ -48,72 +51,53 @@ src/
 
 ### Setup Instructions
 
-1. **Clone the repository** (or create a new React app if starting from scratch)
+1. **Create a new React app:**
 ```bash
 npx create-react-app proviniti-website
 cd proviniti-website
 ```
 
-2. **Replace the default files** with the provided components and styles
+2. **Install React Router:**
+```bash
+npm install react-router-dom
+```
 
-3. **Install dependencies**
+3. **Replace the default src folder structure** with the provided files
+
+4. **Install dependencies:**
 ```bash
 npm install
 ```
 
-4. **Start the development server**
+5. **Start the development server:**
 ```bash
 npm start
 ```
 
-5. **Open your browser** and navigate to `http://localhost:3000`
+6. **Open your browser** and navigate to `http://localhost:3000`
 
-## 🎨 Component Overview
+## 🎯 Component Overview
 
-### Header Component
-- Responsive navigation menu
-- Logo branding
-- Smooth scrolling navigation
+### Layout Components
+- **Header.jsx** - Navigation header with responsive menu
+- **FooterSection.jsx** - Footer with links and company information
 
-### Hero Section
-- Eye-catching headline
-- Compelling value proposition
-- Call-to-action button
+### Home Page Components
+- **Hero Section** - Main banner with call-to-action
+- **Services.jsx** - Service offerings grid
+- **Solutions.jsx** - Technical solutions showcase
+- **WhoWeAre.jsx** - Company introduction
+- **Industries.jsx** - Industry specialization
+- **ClientShowcase.jsx** - Client testimonials and logos
+- **TestimonialSection.jsx** - Customer testimonials
+- **CTASection.jsx** - Call-to-action sections
 
-### Services Section
-- Comprehensive service offerings
-- Clean card-based layout
-- Hover animations
-
-### Solutions Section
-- IT solutions showcase
-- Industry specialization
-- Grid-based layout
-
-### Who We Are Section
-- Company mission and values
-- Key differentiators
-- Brand messaging
-
-### What We Do Section
-- Detailed service descriptions
-- Interactive "Read more" links
-- Professional service cards
-
-### Resources Section
-- Press releases and blog content
-- Engaging card layout
-- Easy-to-access resources
-
-### Contact Section
-- Contact information
-- Inquiry form
-- Social media links
-
-### Footer Component
-- Additional navigation
-- Copyright information
-- Clean, professional design
+### Page Components
+- **Home.jsx** - Landing page with all sections
+- **WhatWeDo.jsx** - Detailed service descriptions
+- **WhoWeAre.jsx** - About company page
+- **Resources.jsx** - Blog, press releases, resources
+- **Contact.jsx** - Contact form and information
 
 ## 📱 Responsive Design
 
@@ -134,6 +118,7 @@ npm run build
 **Netlify:**
 1. Build the project: `npm run build`
 2. Drag and drop the `build` folder to Netlify
+3. Configure redirects for SPA routing
 
 **Vercel:**
 ```bash
@@ -145,7 +130,7 @@ vercel
 1. Install gh-pages: `npm install --save-dev gh-pages`
 2. Add to package.json:
 ```json
-"homepage": "https://yourusername.github.io/repository-name",
+"homepage": "https://yourusername.github.io/proviniti-website",
 "scripts": {
   "predeploy": "npm run build",
   "deploy": "gh-pages -d build"
@@ -156,30 +141,69 @@ vercel
 ## 🔧 Customization
 
 ### Colors
-Main color scheme in `App.css`:
+Main color scheme in CSS variables:
 - Primary Blue: `#0056b3`
 - Dark Blue: `#003d82`
-- Background: `#f8f9fa`
-- Text: `#333333`
+- Light Gray: `#f8f9fa`
+- Medium Gray: `#e9ecef`
+- Text Color: `#333333`
 
 ### Content
-Update text content directly in each component file. Each section is modular and easy to modify.
+Update text content directly in each component file. Each component is modular and easy to modify.
 
 ### Styling
-Modify `App.css` to change:
+Modify component CSS files to change:
 - Colors and themes
 - Layout and spacing
 - Animations and transitions
 - Responsive breakpoints
 
-## 📄 Pages/Sections Included
+## 📄 Pages Included
 
-1. **Home** - Hero section and overview
-2. **Services** - Service offerings
-3. **Solutions** - Technical solutions
-4. **About** - Company information
-5. **Resources** - Press releases and blogs
-6. **Contact** - Contact information and form
+1. **Home** (`/`) - Complete landing page with all sections
+2. **What We Do** (`/what-we-do`) - Detailed services page
+3. **Who We Are** (`/who-we-are`) - About company page
+4. **Resources** (`/resources`) - Blog and press releases
+5. **Contact** (`/contact`) - Contact information and form
+
+## 🔄 Routing Configuration
+
+Update your `App.jsx` to include React Router:
+
+```jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import FooterSection from './components/FooterSection';
+import Home from './pages/Home';
+import WhatWeDo from './pages/WhatWeDo';
+import WhoWeAre from './pages/WhoWeAre';
+import Resources from './pages/Resources';
+import Contact from './pages/Contact';
+import './App.css';
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/what-we-do" element={<WhatWeDo />} />
+            <Route path="/who-we-are" element={<WhoWeAre />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <FooterSection />
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+```
 
 ## 🤝 Contributing
 
@@ -203,8 +227,8 @@ This project is for educational/demonstration purposes. Please ensure you have t
 ## 🔄 Future Enhancements
 
 Potential improvements for the website:
-- [ ] Add React Router for multi-page navigation
-- [ ] Implement state management with Context API or Redux
+- [x] Add React Router for multi-page navigation
+- [ ] Implement state management with Context API
 - [ ] Add form validation for contact form
 - [ ] Integrate with a CMS for dynamic content
 - [ ] Add animations with Framer Motion
@@ -215,4 +239,25 @@ Potential improvements for the website:
 
 ---
 
-**Built with ❤️ using React.js**
+**Built with ❤️ using React.js and React Router**
+
+## 🎨 Design System
+
+### Typography Scale
+- H1: 2.5rem (40px)
+- H2: 2rem (32px)
+- H3: 1.5rem (24px)
+- Body: 1rem (16px)
+- Small: 0.875rem (14px)
+
+### Spacing System
+- Small: 0.5rem (8px)
+- Medium: 1rem (16px)
+- Large: 2rem (32px)
+- X-Large: 4rem (64px)
+
+### Breakpoints
+- Mobile: 320px - 767px
+- Tablet: 768px - 1199px
+- Desktop: 1200px+
+
